@@ -1,0 +1,5 @@
+From CopyPasta to CodeSnippets
+
+Configure code snippets to generate commonly used code via code completion. Code tags provide you with "parameters" for the snippets that you can tab through and fill with code. This way, just a couple keystrokes can produce many lines of code that you can then tab through to implement. Clearly, it is important to not make your code snippets too specific or too abstract. You need to find a balance between how much code to include vs. how often you will use it.
+
+Ever encounter the totally absurd task of having to configure a scroll view to move content under the keyboard? Hopefully not as you should be exploiting table views. But regardless, it is the perfect situation for a code snippet that conveniently generates 142 lines of code that you never will have to copy from Apple Docs.
