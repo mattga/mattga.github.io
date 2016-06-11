@@ -50,14 +50,7 @@ $(document).ready(function(){
     $.ajax({
         url: "https://api.github.com/repos/mattga/MGCollapsingHeader/stargazers?callback=?",
         dataType: "jsonp",
-        headers: { 
-            'Authorization': 'Basic ' + btoa('mattga:ma1991ga'),
-        },
         success: function(json) {
-            console.log(this);
-            // console.log(json)
-            console.log(json.data)
-            // console.log(json.data.length)
             if (json.data.length != undefined) {
                 mgchrating.prepend('<h6>'+json.data.length+'</h6>');
                 mgchrating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
@@ -73,14 +66,7 @@ $(document).ready(function(){
     $.ajax({
         url: "https://api.github.com/repos/mattga/MGAlertUtility/stargazers?callback=?",
         dataType: "jsonp",
-        headers: { 
-            'Authorization': 'Basic ' + btoa('mattga:ma1991ga'),
-        },
         success: function(json) {
-            console.log(this);
-            // console.log(json)
-            console.log(json.data)
-            // console.log(json.data.length)
             if (json.data.length != undefined) {
                 mgaurating.prepend('<h6>'+json.data.length+'</h6>');
                 mgaurating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
