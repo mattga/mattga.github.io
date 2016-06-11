@@ -303,6 +303,7 @@ ul#social a:active {
   width: 250px;
   background: #d4d4d4;
   text-align: left;
+  z-index: 500;
 }
 
 .work-section .projtile-inner {
@@ -310,6 +311,7 @@ ul#social a:active {
   background: transparent;
   height: 100%;
   width: 100%;
+  z-index: 600;
   opacity: 0;
   transition: background .2s, opacity .2s;
 }
@@ -336,9 +338,12 @@ ul#social a:active {
 }
 
 .work-section .projcaption {
-  position: relative;
-  width: 250px;
+  position: absolute;
+  width: 230px;
   height: 20px;
+  left: 10px;
+  bottom: 5px;
+  z-index: 550;
 }
 
 .work-section .projcaption a {
@@ -349,6 +354,7 @@ ul#social a:active {
 
 .work-section .projcaption a .company {
   height: 12px;
+  opacity: .7;
 }
 
 .work-section .projcaption h6 {
@@ -371,6 +377,10 @@ ul#social a:active {
   position: absolute;
   display: inline-block;
   left: 2px;
+}
+
+.projrating#isocrating .stars, .projrating#fxfrating .stars, .projrating#isocrating h6, .projrating#fxfrating h6 {
+  color: #f9f9f9;
 }
 
 /* ------ eddi------ */

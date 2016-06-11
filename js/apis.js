@@ -1,9 +1,10 @@
+
 $(document).ready(function(){
 
     var eddirating = $('#eddirating');
     var ssrating = $('#ssrating');
     var isocrating = $('#isocrating');
-    var fxfrating = $('#5x5rating');
+    var fxfrating = $('#fxfrating');
     var mgchrating = $('#mgchrating');
     var mgaurating = $('#mgaurating');
 
@@ -44,25 +45,76 @@ $(document).ready(function(){
     });
 
     fxfrating.prepend('<h6>5</h6>');
-    setStars(fxfrating, 4);    
+    setStars(fxfrating, 4);
 
-    $.getJSON("http://metrics.cocoapods.org/api/v1/pods/MGCollapsingHeader.json", function(json) {
-        console.log(json);
-        if (json) {
-            mgchrating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
-            mgchrating.prepend('<h6>'+json.github.stargazers+'</h6>');
-            mgchrating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
-            mgchrating.prepend('<h6>'+json.stats.download_total+'</h6>');
+    $.ajax({
+        url: "https://api.github.com/repos/mattga/MGCollapsingHeader/stargazers?callback=?",
+        dataType: "jsonp",
+        headers: { 
+            'Authorization': 'Basic ' + btoa('mattga:ma1991ga'),
+        },
+        success: function(json) {
+            console.log(this);
+            // console.log(json)
+            console.log(json.data)
+            // console.log(json.data.length)
+            if (json.data.length != undefined) {
+                mgchrating.prepend('<h6>'+json.data.length+'</h6>');
+                mgchrating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
+            } else {
+                mgchrating.prepend('<h6>10</h6>');
+                mgchrating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
+            }
         }
     });
+    mgchrating.prepend('<h6>293</h6>');
+    mgchrating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
 
-    $.getJSON("http://metrics.cocoapods.org/api/v1/pods/MGAlertUtility.json", function(json) {
-        console.log(json);
-        if (json) {
-            mgaurating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
-            mgaurating.prepend('<h6>'+json.github.stargazers+'</h6>');
-            mgaurating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
-            mgaurating.prepend('<h6>'+json.stats.download_total+'</h6>');
+    $.ajax({
+        url: "https://api.github.com/repos/mattga/MGAlertUtility/stargazers?callback=?",
+        dataType: "jsonp",
+        headers: { 
+            'Authorization': 'Basic ' + btoa('mattga:ma1991ga'),
+        },
+        success: function(json) {
+            console.log(this);
+            // console.log(json)
+            console.log(json.data)
+            // console.log(json.data.length)
+            if (json.data.length != undefined) {
+                mgaurating.prepend('<h6>'+json.data.length+'</h6>');
+                mgaurating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
+            } else {
+                mgaurating.prepend('<h6>1</h6>');
+                mgaurating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
+            }
         }
     });
+    mgaurating.prepend('<h6>13</h6>');
+    mgaurating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
+
+    // $.ajax({
+    //     type:"GET",
+    //     url: "http://metrics.cocoapods.org/api/v1/pods/MGCollapsingHeader.json",
+    //     crossDomain: true,
+    //     success: function(json) {
+    //         console.log(json);
+    //         if (json) {
+    //             mgchrating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
+    //             mgchrating.prepend('<h6>'+json.github.stargazers+'</h6>');
+    //             mgchrating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
+    //             mgchrating.prepend('<h6>'+json.stats.download_total+'</h6>');
+    //         }
+    //     }
+    // })
+
+    // $.getJSON("http://metrics.cocoapods.org/api/v1/pods/MGAlertUtility.json", function(json) {
+    //     console.log(json);
+    //     if (json) {
+    //         mgaurating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
+    //         mgaurating.prepend('<h6>'+json.github.stargazers+'</h6>');
+    //         mgaurating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
+    //         mgaurating.prepend('<h6>'+json.stats.download_total+'</h6>');
+    //     }
+    // });
 });
