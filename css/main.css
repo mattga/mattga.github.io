@@ -124,7 +124,8 @@ li {
   width: 291.9px;
   height: 38px;
   padding: 15px 0;
-  margin: 0 auto;
+  left: 50%;
+  margin-left: -157.5px;
   -webkit-transition: margin-left .5s, left .5s;
   transition: margin-left .5s, left .5s;
 }
