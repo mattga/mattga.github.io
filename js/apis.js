@@ -60,7 +60,7 @@ $(document).ready(function(){
             }
         }
     });
-    mgchrating.prepend('<h6>344</h6>');
+    mgchrating.prepend('<h6>600</h6>');
     mgchrating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
 
     $.ajax({
@@ -76,7 +76,7 @@ $(document).ready(function(){
             }
         }
     });
-    mgaurating.prepend('<h6>13</h6>');
+    mgaurating.prepend('<h6>27</h6>');
     mgaurating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
 
     // $.ajax({
