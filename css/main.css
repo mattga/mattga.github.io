@@ -502,6 +502,41 @@ ul#social a:active {
 }
 /*----------------------*/
 
+/* ------ Publications ------ */
+.projtile#pub img#thumb {
+  position: absolute;
+  display: block;
+  width: 180px;
+  padding-top: 30px;
+}
+
+.projtile#pub h4 {
+  font-size: 1.3em;
+  position: absolute;
+  display: block;
+  text-align: center;
+  width: 240px;
+  padding: 90px 5px 0 5px;
+}
+
+.projtile#pub h5 {
+  font-size: 0.9em;
+  font-weight: 300;
+  text-align: center;
+  padding: 155px 0 0 0;
+  width: 100%;
+  display: block;
+  position: absolute;
+  color: #313131;
+}
+
+.projtile#pub .projtile-inner img {
+  height: 230px;
+  width: auto;
+  top: 10px;
+}
+/*----------------------*/
+
 
 /********************************************
 *               ABOUT SECTION               *
