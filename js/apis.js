@@ -60,7 +60,7 @@ $(document).ready(function(){
             }
         }
     });
-    mgchrating.prepend('<h6>600</h6>');
+    mgchrating.prepend('<h6>977</h6>');
     mgchrating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
 
     $.ajax({
