@@ -47,60 +47,89 @@ $(document).ready(function(){
     fxfrating.prepend('<h6>5</h6>');
     setStars(fxfrating, 4);
 
+    // MGCollapsingHeader
+    function mgch_downloads() { return 2164; };
+    function mgch_stars() { return 15; };
     $.ajax({
-        url: "https://api.github.com/repos/mattga/MGCollapsingHeader/stargazers?callback=?",
+        url: "https://api.github.com/repos/mattga/MGCollapsingHeader?callback=?",
         dataType: "jsonp",
         success: function(json) {
-            if (json.data.length != undefined) {
-                mgchrating.prepend('<h6>'+json.data.length+'</h6>');
+            if (json.data != undefined) {
+                mgchrating.prepend('<h6>'+json.data.stargazers_count+'</h6>');
                 mgchrating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
             } else {
-                mgchrating.prepend('<h6>10</h6>');
+                console.log('MGCollapsingHeader json undefined (possibly reached rate limit).');
+                mgchrating.prepend('<h6>'+mgch_stars()+'</h6>');
                 mgchrating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
             }
+        },
+        error: function() {
+            mgchrating.prepend('<h6>'+mgch_stars()+'</h6>');
+            mgchrating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
         }
     });
-    mgchrating.prepend('<h6>600</h6>');
-    mgchrating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
-
     $.ajax({
-        url: "https://api.github.com/repos/mattga/MGAlertUtility/stargazers?callback=?",
+        url: "http://metrics.cocoapods.org/api/v1/pods/MGCollapsingHeader.json",
+        type:"GET",
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        },
+        success: function(json) {
+            console.log(json);
+            if (json) {
+                mgchrating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
+                mgchrating.prepend('<h6>'+json.stats.download_total+'</h6>');
+            } else {
+            mgchrating.prepend('<h6>'+mgch_downloads()+'</h6>');
+            mgchrating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
+            }
+        },
+        error: function() {
+            mgchrating.prepend('<h6>'+mgch_downloads()+'</h6>');
+            mgchrating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
+        }
+    })
+
+    // MGAlertUtility
+    function mgau_downloads() { return 39; };
+    function mgau_stars() { return 1; };
+    $.ajax({
+        url: "https://api.github.com/repos/mattga/MGAlertUtility?callback=?",
         dataType: "jsonp",
         success: function(json) {
-            if (json.data.length != undefined) {
-                mgaurating.prepend('<h6>'+json.data.length+'</h6>');
+            if (json.data != undefined) {
+                mgaurating.prepend('<h6>'+json.data.stargazers_count+'</h6>');
                 mgaurating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
             } else {
-                mgaurating.prepend('<h6>1</h6>');
+                console.log('MGAlertUtility json undefined (possibly reached rate limit).');
+                mgaurating.prepend('<h6>'+mgau_stars()+'</h6>');
                 mgaurating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
             }
+        },
+        error: function() {
+            mgaurating.prepend('<h6>'+mgau_stars()+'</h6>');
+            mgaurating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
         }
     });
-    mgaurating.prepend('<h6>27</h6>');
-    mgaurating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
-
-    // $.ajax({
-    //     type:"GET",
-    //     url: "http://metrics.cocoapods.org/api/v1/pods/MGCollapsingHeader.json",
-    //     crossDomain: true,
-    //     success: function(json) {
-    //         console.log(json);
-    //         if (json) {
-    //             mgchrating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
-    //             mgchrating.prepend('<h6>'+json.github.stargazers+'</h6>');
-    //             mgchrating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
-    //             mgchrating.prepend('<h6>'+json.stats.download_total+'</h6>');
-    //         }
-    //     }
-    // })
-
-    // $.getJSON("http://metrics.cocoapods.org/api/v1/pods/MGAlertUtility.json", function(json) {
-    //     console.log(json);
-    //     if (json) {
-    //         mgaurating.prepend('<i class="stars fa fa-star" aria-hidden="true"></i>');
-    //         mgaurating.prepend('<h6>'+json.github.stargazers+'</h6>');
-    //         mgaurating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
-    //         mgaurating.prepend('<h6>'+json.stats.download_total+'</h6>');
-    //     }
-    // });
+    $.ajax({
+        url: "http://metrics.cocoapods.org/api/v1/pods/MGAlertUtility.json",
+        type:"GET",
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        },
+        success: function(json) {
+            console.log(json);
+            if (json) {
+                mgaurating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
+                mgaurating.prepend('<h6>'+json.stats.download_total+'</h6>');
+            } else {
+                mgaurating.prepend('<h6>'+mgau_downloads()+'</h6>');
+                mgaurating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
+            }
+        },
+        error: function() {
+            mgaurating.prepend('<h6>'+mgau_downloads()+'</h6>');
+            mgaurating.prepend('<i class="stars fa fa-download" aria-hidden="true"></i>');
+        }
+    })
 });
