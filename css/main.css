@@ -192,7 +192,7 @@ li {
 
 .header-line {
   position: relative;
-  height: 3px;
+  height: 1.5px;
   width: 100px;
   background: #2e2e2e;
   border-radius: 1.5px;
@@ -503,11 +503,18 @@ ul#social a:active {
 /*----------------------*/
 
 /* ------ Publications ------ */
-.projtile#pub img#thumb {
+.projtile#pub img#iros16_thumb {
   position: absolute;
   display: block;
   width: 180px;
   padding-top: 30px;
+}
+
+.projtile#pub img#ijrr17_thumb {
+  position: absolute;
+  display: block;
+  width: 120px;
+  padding-top: 5px;
 }
 
 .projtile#pub h4 {
@@ -530,10 +537,31 @@ ul#social a:active {
   color: #313131;
 }
 
+.projtile#pub .projtile-inner a#yt {
+  position: absolute;
+  width: 250px;
+  height: 90px;
+  left: 0px;
+  bottom: 0px;
+  z-index: 550;
+}
+
+.projtile#pub .projtile-inner .yt_btn {
+  height: 80px;
+  width: auto;
+  left: 10px;
+}
+
 .projtile#pub .projtile-inner img {
   height: 230px;
   width: auto;
   top: 10px;
+}
+
+.projtile#pub .projtile-inner img#ijrr17 {
+  height: 240px;
+  width: auto;
+  top: 5px;
 }
 /*----------------------*/
 
