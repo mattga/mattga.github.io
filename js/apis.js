@@ -48,8 +48,8 @@ $(document).ready(function(){
     setStars(fxfrating, 4);
 
     // MGCollapsingHeader
-    function mgch_downloads() { return 2164; };
-    function mgch_stars() { return 15; };
+    function mgch_downloads() { return 9387; };
+    function mgch_stars() { return 27; };
     $.ajax({
         url: "https://api.github.com/repos/mattga/MGCollapsingHeader?callback=?",
         dataType: "jsonp",
@@ -91,7 +91,7 @@ $(document).ready(function(){
     })
 
     // MGAlertUtility
-    function mgau_downloads() { return 39; };
+    function mgau_downloads() { return 47; };
     function mgau_stars() { return 1; };
     $.ajax({
         url: "https://api.github.com/repos/mattga/MGAlertUtility?callback=?",
